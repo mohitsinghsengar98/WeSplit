@@ -21,11 +21,7 @@ It takes the total amount, number of people, and tip percentage, then calculates
 - Perfect for learning SwiftUI forms, state management, and real-time calculations.
 
 ## 📸 Demo
-
-Replace this with your GIF or screen recording
-
-👉 Add your demo GIF here:
-Example:
+### Example:
 ![demo](https://github.com/user-attachments/assets/0198aa4e-3174-4031-8590-cd68c07df69a)
 
 ## ✨ Features
