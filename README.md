@@ -26,7 +26,7 @@ Replace this with your GIF or screen recording
 
 👉 Add your demo GIF here:
 Example:
-![Demo](demo.gif)
+![demo](https://github.com/user-attachments/assets/0198aa4e-3174-4031-8590-cd68c07df69a)
 
 ## ✨ Features
 
