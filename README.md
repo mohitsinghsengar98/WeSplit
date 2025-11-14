@@ -1,22 +1,17 @@
-🧮 SplitEase – Bill Splitter (SwiftUI)
-
-
-
-
-
+#🧮 SplitEase – Bill Splitter (SwiftUI)
 
 SplitEase is a simple and intuitive bill-splitting app built with SwiftUI.
 It takes the total amount, number of people, and tip percentage, then calculates:
 
-Total payable amount
+-Total payable amount
 
-Amount each person must pay
+-Amount each person must pay
 
-All values displayed in INR (₹) format
+-All values displayed in INR (₹) format
 
-Perfect for learning SwiftUI forms, state management, and real-time calculations.
+-Perfect for learning SwiftUI forms, state management, and real-time calculations.
 
-📸 Demo
+#📸 Demo
 
 Replace this with your GIF or screen recording
 
@@ -24,144 +19,159 @@ Replace this with your GIF or screen recording
 Example:
 ![Demo](demo.gif)
 
-✨ Features
+#✨ Features
 
-💵 Enter Bill Amount (Double supported)
+-💵 Enter Bill Amount (Double supported)
 
-👥 Enter Number of People
+-👥 Enter Number of People
 
-🎁 Select Tip Percentage
+-🎁 Select Tip Percentage
 
-🧾 Auto Calculation of:
+-🧾 Auto Calculation of:
 
-Tip amount
+-Tip amount
 
-Total bill
+-Total bill
 
-Per-person amount
+-Per-person amount
 
-🇮🇳 INR Currency Formatting
+-🇮🇳 INR Currency Formatting
 
-📱 Clean, minimal SwiftUI interface
+-📱 Clean, minimal SwiftUI interface
 
-🔄 Real-time updates using @State
+-🔄 Real-time updates using @State
 
-🛠️ Tech Stack
+-🛠️ Tech Stack
 
-Swift 5.9
+-Swift 5.9
 
-SwiftUI
+-SwiftUI
 
-@State & reactive UI updates
+-@State & reactive UI updates
 
-NumberFormatter for INR currency formatting
+-NumberFormatter for INR currency formatting
 
-MVVM Lite (if you want, I can add full MVVM folder structure too!)
+#🚀 How It Works
 
-🚀 How It Works
+-User enters the bill amount
 
-User enters the bill amount
+-Chooses the number of people to split the bill
 
-Chooses the number of people to split the bill
+-Selects a tip percentage
 
-Selects a tip percentage
+-App calculates:
 
-App calculates:
+-Total = amount + tip
 
-Total = amount + tip
+-Per Person = Total / numberOfPeople
 
-Per Person = Total / numberOfPeople
+-Output shown in ₹ INR format
 
-Output shown in ₹ INR format
-
-🧮 Core Logic (Code Snippet)
+#🧮 Core Logic (Code Snippet)
+swift …
 import SwiftUI
 
 struct ContentView: View {
-
-    @State private var amount: Double = 0
-    @State private var numberOfPeople: Int = 1
-    @State private var tipPercentage: Int = 10
-
-    var formatter: NumberFormatter {
-        let f = NumberFormatter()
-        f.numberStyle = .currency
-        f.locale = Locale(identifier: "en_IN") // INR formatting
-        return f
+    @State private var checkAmount = 0.0
+    @State private var numberOfPeople = 2
+    @State private var tipPercentage = 20
+    @FocusState private var amountIsFocused : Bool
+    
+    let tipPercentages = [10, 15, 20 ,25, 0]
+    
+    var totalPerPerson:Double{
+        // calculate the per person check amount here
+        let peopleCount:Double = Double(numberOfPeople)
+        let tipSelection:Double = Double(self.tipPercentage)
+        
+        let tipValue = checkAmount / 100 * tipSelection
+        let grandTotal = checkAmount + tipValue
+        let amountPerPerson = grandTotal/peopleCount
+        
+        return amountPerPerson
     }
-
-    var totalAmount: Double {
-        let tipValue = amount * Double(tipPercentage) / 100
-        return amount + tipValue
-    }
-
-    var amountPerPerson: Double {
-        return totalAmount / Double(max(numberOfPeople, 1))
-    }
-
+    
     var body: some View {
-        Form {
-            Section(header: Text("Enter Bill Details")) {
-                TextField("Amount", value: $amount, format: .number)
-                    .keyboardType(.decimalPad)
-
-                Stepper("People: \(numberOfPeople)", value: $numberOfPeople, in: 1...20)
-
-                Picker("Tip", selection: $tipPercentage) {
-                    ForEach([0, 5, 10, 15, 20, 25], id: \.self) {
-                        Text("\($0)%")
+        NavigationStack{
+            Form{
+                Section{
+                    TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currencyCode ?? "INR"))
+                        .keyboardType(.decimalPad)
+                        .focused($amountIsFocused)
+                    
+                    Picker("Numbers of people", selection: $numberOfPeople) {
+                        ForEach(2..<100, id: \.self) {
+                            Text("\($0) people")
+                        }
+                    }
+                }
+                
+                Section{
+                    Picker("Tip Percentage", selection: $tipPercentage) {
+                        ForEach(tipPercentages,id:\.self) {
+                            Text($0,format: .percent)
+                        }
+                    }.pickerStyle(.segmented)
+                } header: {
+                    Text("How much do you want to leave ?")
+                }
+                
+                Section{
+                    Text(totalPerPerson,format: .currency(code: Locale.current.currencyCode ?? "INR"))
+                }
+            }
+            .navigationTitle("WeSplit")
+            .toolbar{
+                ToolbarItemGroup(placement:.keyboard){
+                    Spacer()
+                    Button("Done"){
+                        amountIsFocused = false
                     }
                 }
             }
-
-            Section(header: Text("Results")) {
-                Text("Total: \(formatter.string(from: totalAmount as NSNumber) ?? "")")
-                Text("Per Person: \(formatter.string(from: amountPerPerson as NSNumber) ?? "")")
-            }
         }
-        .navigationTitle("SplitEase")
     }
 }
 
-📦 Installation
+#📦 Installation
 
-Clone the repository:
+-Clone the repository:
 
 git clone https://github.com/your-username/SplitEase.git
 
 
-Open the project:
+-Open the project:
 
 open SplitEase.xcodeproj
 
 
-Run on iOS Simulator or device ✔️
+-Run on iOS Simulator or device ✔️
 
-🧭 Requirements
+#🧭 Requirements
 
-macOS with Xcode 15+
+-macOS with Xcode 15+
 
-iOS 17+ target
+-iOS 17+ target
 
-Swift 5.9+
+-Swift 5.9+
 
-No external dependencies
+-No external dependencies
 
-📝 Roadmap (optional)
+#📝 Roadmap (optional)
 
-Dark Mode UI
+-Dark Mode UI
 
-Add split summary with share sheet
+-Add split summary with share sheet
 
-Tip slider customization
+-Tip slider customization
 
-Add currency selector (USD, EUR, GBP, AED, etc.)
+-Add currency selector (USD, EUR, GBP, AED, etc.)
 
-🤝 Contributing
+#🤝 Contributing
 
 Pull requests are welcome!
 For ideas, open an issue or create a PR.
 
-📄 License
+#📄 License
 
-This project is MIT Licensed — feel free to use or modify as needed.
+-This project is MIT Licensed — feel free to use or modify as needed.
