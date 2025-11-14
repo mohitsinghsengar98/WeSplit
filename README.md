@@ -1,17 +1,26 @@
-#🧮 SplitEase – Bill Splitter (SwiftUI)
+# 🧮 SplitEase – Bill Splitter (SwiftUI)
 
 SplitEase is a simple and intuitive bill-splitting app built with SwiftUI.
 It takes the total amount, number of people, and tip percentage, then calculates:
 
--Total payable amount
+<table>
+  <tr>
+    <th style="border: none;"><strong>Current App</strong></th>
+    <td style="border: none;"><img src="https://img.shields.io/badge/Xcode-26.1-blue?logo=Xcode&logoColor=white" alt="Firefox-iOS"></td>
+    <td style="border: none;"><img src="https://img.shields.io/badge/Swift-5.10-red?logo=Swift&logoColor=white" alt="Firefox-iOS"></td>
+    <td style="border: none;"><img src="https://img.shields.io/badge/iOS-15.0+-green?logo=apple&logoColor=white" alt="Firefox-iOS"></td>
+  </tr>
+</table>
 
--Amount each person must pay
+- Total payable amount
 
--All values displayed in INR (₹) format
+- Amount each person must pay
 
--Perfect for learning SwiftUI forms, state management, and real-time calculations.
+- All values displayed in INR (₹) format
 
-#📸 Demo
+- Perfect for learning SwiftUI forms, state management, and real-time calculations.
+
+## 📸 Demo
 
 Replace this with your GIF or screen recording
 
@@ -19,56 +28,56 @@ Replace this with your GIF or screen recording
 Example:
 ![Demo](demo.gif)
 
-#✨ Features
+## ✨ Features
 
--💵 Enter Bill Amount (Double supported)
+- 💵 Enter Bill Amount (Double supported)
 
--👥 Enter Number of People
+- 👥 Enter Number of People
 
--🎁 Select Tip Percentage
+- 🎁 Select Tip Percentage
 
--🧾 Auto Calculation of:
+- 🧾 Auto Calculation of:
 
--Tip amount
+- Tip amount
 
--Total bill
+- Total bill
 
--Per-person amount
+- Per-person amount
 
--🇮🇳 INR Currency Formatting
+- 🇮🇳 INR Currency Formatting
 
--📱 Clean, minimal SwiftUI interface
+- 📱 Clean, minimal SwiftUI interface
 
--🔄 Real-time updates using @State
+- 🔄 Real-time updates using @State
 
--🛠️ Tech Stack
+- 🛠️ Tech Stack
 
--Swift 5.9
+- Swift 5.9
 
--SwiftUI
+- SwiftUI
 
--@State & reactive UI updates
+- @State & reactive UI updates
 
--NumberFormatter for INR currency formatting
+- NumberFormatter for INR currency formatting
 
-#🚀 How It Works
+# 🚀 How It Works
 
--User enters the bill amount
+- User enters the bill amount
 
--Chooses the number of people to split the bill
+- Chooses the number of people to split the bill
 
--Selects a tip percentage
+- Selects a tip percentage
 
--App calculates:
+- App calculates:
 
--Total = amount + tip
+- Total = amount + tip
 
--Per Person = Total / numberOfPeople
+- Per Person = Total / numberOfPeople
 
--Output shown in ₹ INR format
+- Output shown in ₹ INR format
 
-#🧮 Core Logic (Code Snippet)
-swift …
+## 🧮 Core Logic (Code Snippet)
+```swift
 import SwiftUI
 
 struct ContentView: View {
@@ -132,46 +141,45 @@ struct ContentView: View {
         }
     }
 }
+```
 
-#📦 Installation
+## 📦 Installation
 
--Clone the repository:
+- Clone the repository:
 
 git clone https://github.com/your-username/SplitEase.git
 
-
--Open the project:
+- Open the project:
 
 open SplitEase.xcodeproj
 
+- Run on iOS Simulator or device ✔️
 
--Run on iOS Simulator or device ✔️
+## 🧭 Requirements
 
-#🧭 Requirements
+- macOS with Xcode 15+
 
--macOS with Xcode 15+
+- iOS 17+ target
 
--iOS 17+ target
+- Swift 5.9+
 
--Swift 5.9+
+- No external dependencies
 
--No external dependencies
+## 📝 Roadmap (optional)
 
-#📝 Roadmap (optional)
+- Dark Mode UI
 
--Dark Mode UI
+- Add split summary with share sheet
 
--Add split summary with share sheet
+- Tip slider customization
 
--Tip slider customization
+- Add currency selector (USD, EUR, GBP, AED, etc.)
 
--Add currency selector (USD, EUR, GBP, AED, etc.)
-
-#🤝 Contributing
+## 🤝 Contributing
 
 Pull requests are welcome!
 For ideas, open an issue or create a PR.
 
-#📄 License
+## 📄 License
 
--This project is MIT Licensed — feel free to use or modify as needed.
+- This project is MIT Licensed — feel free to use or modify as needed.
