@@ -8,7 +8,7 @@ It takes the total amount, number of people, and tip percentage, then calculates
     <th style="border: none;"><strong>Current App</strong></th>
     <td style="border: none;"><img src="https://img.shields.io/badge/Xcode-26.1-blue?logo=Xcode&logoColor=white" alt="Firefox-iOS"></td>
     <td style="border: none;"><img src="https://img.shields.io/badge/Swift-5.10-red?logo=Swift&logoColor=white" alt="Firefox-iOS"></td>
-    <td style="border: none;"><img src="https://img.shields.io/badge/iOS-15.0+-green?logo=apple&logoColor=white" alt="Firefox-iOS"></td>
+    <td style="border: none;"><img src="https://img.shields.io/badge/iOS-26.1+-green?logo=apple&logoColor=white" alt="Firefox-iOS"></td>
   </tr>
 </table>
 
